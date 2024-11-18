@@ -6,7 +6,7 @@
   "module": "dist/index.mjs",
   "types": "dist/index.d.ts",
   "scripts": {
-    "rollup": "rollup -c --bundleConfigAsCjs"
+    "prepublishOnly": "rollup -c --bundleConfigAsCjs"
   },
   "author": "Manasvi Joshi",
   "license": "ISC",

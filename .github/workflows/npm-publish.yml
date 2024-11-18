@@ -17,6 +17,8 @@ jobs:
               with:
                   node-version: 20
                   registry-url: https://registry.npmjs.org
+            - name: Build Package
+              run: npm run rollup
             - name: 🚀 publish
               run: npm publish --access public
               env:

@@ -11,14 +11,16 @@ jobs:
         runs-on: ubuntu-latest
         steps:
             - name: 📚 checkout
-              uses: actions/checkout@v3
+              uses: actions/checkout@v4
             - name: 🟢 node
-              uses: actions/setup-node@v3
+              uses: actions/setup-node@v4
               with:
                   node-version: 20
                   registry-url: https://registry.npmjs.org
-            - name: Build Package
-              run: rollup -c --bundleConfigAsCjs
+            - name: 📦 install dependencies
+              run: npm install
+            - name: 🏗️ build
+              run: npm run rollup
             - name: 🚀 publish
               run: npm publish --access public
               env:

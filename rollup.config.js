@@ -32,7 +32,6 @@ export default [
       postcss({
         extract: true,
         minimize: true,
-        use: ['sass'],
       }),
     ],
     external: ["react", "react-dom"],
@@ -41,5 +40,16 @@ export default [
     input: "src/index.ts",
     output: [{ file: packageJson.types }],
     plugins: [dts.default()],
+    external: [/\.css$/],
+  },
+  {
+    input: "src/styles/main.css",
+    output: [{ file: "dist/index.css", format: "es" }],
+    plugins: [
+      postcss({
+        extract: true,
+        minimize: true,
+      }),
+    ],
   },
 ];

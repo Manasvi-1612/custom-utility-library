@@ -1,0 +1,10 @@
+/src
+/node_modules
+/test
+
+.env
+.DS_Store
+
+tsconfig.json
+tsup.config.ts
+.github

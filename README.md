@@ -2,45 +2,114 @@
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
+## Configure project
 
-In the project directory, you can run:
+### Setup vite project:
 
-### `npm start`
+```
+npm create vite@latest
+cd my-project
+```
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+Change my-project with the name of your project.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+### Run:
 
-### `npm test`
+`npm install`
+`npm run dev`
+Open [http://localhost:5173](http://localhost:5173) to view it in the browser.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### Install Tailwind CSS:
 
-### `npm run build`
+```
+npm install -D tailwindcss postcss autoprefixer
+npx tailwindcss init -p
+```
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Install tailwindcss and its peer dependencies, then generate your `tailwind.config.js` and `postcss.config.js` files.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### Configure Template:
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Add the paths to all of your template files in your tailwind.config.js file.
+`tailwind.config.js`
 
-### `npm run eject`
+```
+/** @type {import('tailwindcss').Config} */
+export default {
+  content: [
+    "./index.html",
+    "./src/**/*.{js,ts,jsx,tsx}",
+  ],
+  theme: {
+    extend: {},
+  },
+  plugins: [],
+}
+```
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+### Add the Tailwind directives to your CSS
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+`index.css`
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+```
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+```
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+Add the @tailwind directives for each of Tailwind’s layers to your ./src/index.css file.
 
-## Learn More
+## Configure `custom-utility-library`
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+### Installation
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+```
+npm i @manasvi-1612/custom-utility-library
+```
+
+For more info visit [https://www.npmjs.com/package/@manasvi-1612/custom-utility-library](https://www.npmjs.com/package/@manasvi-1612/custom-utility-library)
+
+### Update `src/index.css`
+
+Add import as:
+
+```
+@import "@manasvi-1612/custom-utility-library/styles.css";
+```
+
+### import Button Component - `App.tsx`
+
+```
+import { Button } from "@manasvi-1612/custom-utility-library";
+
+function App() {
+  return (
+    <>
+      <Button>
+        Hello
+      </Button>
+    </>
+  )
+}
+
+export default App
+
+```
+
+#### Customization:
+
+```
+import { Button } from "@manasvi-1612/custom-utility-library";
+
+function App() {
+  return (
+    <>
+      <Button variant={'ghost'} className="bg-fuchsia-300 text-black">
+        Hello
+      </Button>
+    </>
+  )
+}
+
+export default App
+```

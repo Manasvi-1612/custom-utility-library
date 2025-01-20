@@ -11,7 +11,7 @@ export default defineConfig(() => {
     minify: false,
     skipNodeModulesBundle: false,
     dts: {
-      entry: ["src/index.ts", "src/components/index.ts"],
+      entry: ["src/index.ts", "src/components/index.ts", "src/hooks/index.ts"],
     },
     bundle: true,
     treeshake: false,

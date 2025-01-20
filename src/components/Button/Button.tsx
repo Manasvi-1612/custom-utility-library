@@ -1,6 +1,6 @@
 import { FC, MouseEventHandler, ReactNode } from "react";
 
-import { cn } from "../../lib/cn";
+import { cn } from "@/lib/cn";
 
 const base =
     "border rounded-md inline-flex items-center gap-1 text-sm leading-none font-medium transition-colors duration-200 disabled:pointer-events-none disabled:opacity-70";
